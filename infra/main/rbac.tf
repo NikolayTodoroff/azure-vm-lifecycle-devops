@@ -1,5 +1,11 @@
 resource "azurerm_role_assignment" "vm_secrets_user" {
   scope                = module.key_vault.key_vault_id
   role_definition_name = "Key Vault Secrets User"
-  principal_id         = module.vm.vm_identity_principal_id
+  principal_id         = module.vm.identity_principal_id
+}
+
+resource "azurerm_role_assignment" "pipeline_sp" {
+  scope                = module.key_vault.key_vault_id
+  role_definition_name = "Key Vault Administrator"
+  principal_id         = var.pipeline_sp_object_id
 }

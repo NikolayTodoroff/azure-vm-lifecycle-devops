@@ -16,7 +16,7 @@ module "vm" {
   source              = "../modules/vm"
   prefix              = local.prefix
   location            = var.location
-  resource_group_name = azurerm_resource_group.main.name
+  resource_group_name = azurerm_resource_group.rg_main.name
   subnet_id           = module.networking.subnet_id
   tags                = local.common_tags
 }
