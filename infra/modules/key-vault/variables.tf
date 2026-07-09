@@ -14,12 +14,3 @@ variable "tags" {
   type    = map(string)
   default = {}
 }
-
-variable "vm_identity_principal_id" {
-  type = string
-}
-
-variable "ssh_private_key_pem" {
-  type      = string
-  sensitive = true
-}
