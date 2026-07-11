@@ -23,3 +23,8 @@ variable "pipeline_sp_object_id" {
   description = "Object ID of the service principal used by the CI/CD pipeline"
   type        = string
 }
+variable "alert_email" {
+  description = "Email address for receiving alerts"
+  type        = string
+  default     = "support@vmansible.com"
+}

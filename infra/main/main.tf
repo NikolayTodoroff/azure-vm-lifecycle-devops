@@ -51,3 +51,13 @@ module "automation" {
   tags                = local.common_tags
   vm_name             = module.vm.vm_name
 }
+
+module "monitoring" {
+  source                     = "../modules/monitoring"
+  prefix                     = local.prefix
+  resource_group_name        = azurerm_resource_group.rg_main.name
+  tags                       = local.common_tags
+  vm_id                      = module.vm.vm_id
+  alert_email                = var.alert_email
+  log_analytics_workspace_id = module.automation.log_analytics_workspace_id
+}
